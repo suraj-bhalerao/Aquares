@@ -13,7 +13,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGgdiDTF5vCOl9328Ev
 
 export const submitToGoogleSheets = async (data) => {
     // If URL is still the placeholder, return warning
-    if (SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwGgdiDTF5vCOl9328Ev2XN35swcrxIwukD3lbEjllSeAkY-C5MyX0fJujrQian-_A5/exec') {
+    if (SCRIPT_URL.includes('https://script.google.com/macros/s/AKfycbwGgdiDTF5vCOl9328Ev2XN35swcrxIwukD3lbEjllSeAkY-C5MyX0fJujrQian-_A5/exec')) {
         console.warn("Please configure the Google Apps Script URL in src/services/googleSheets.js");
         return new Promise(resolve => setTimeout(() => resolve({ success: true, message: "Mock Mode (Config required)" }), 1000));
     }
