@@ -14,7 +14,7 @@ const Location = () => {
                     {/* Info Side */}
                     <div className="p-10 flex flex-col justify-center space-y-8 bg-slate-50">
                         <div className="space-y-2">
-                            <h4 className="text-2xl font-bold text-ocean-dark mb-4">Aquaress HQ</h4>
+                            <h4 className="text-2xl font-bold text-ocean-dark mb-4">AQURIUS HQ</h4>
                             <div className="flex items-start gap-4 text-gray-600">
                                 <MapPin className="w-6 h-6 text-aqua-blue flex-shrink-0 mt-1" />
                                 <p>123 Crystal Water Park, <br />Industrial Zone, Sector 4, <br />Cityville, State 400001</p>
@@ -28,7 +28,7 @@ const Location = () => {
                             </div>
                             <div className="flex items-center gap-4 text-gray-600">
                                 <Mail className="w-6 h-6 text-aqua-blue flex-shrink-0" />
-                                <p>hello@aquaress.com</p>
+                                <p>hello@aqurius.com</p>
                             </div>
                             <div className="flex items-center gap-4 text-gray-600">
                                 <Clock className="w-6 h-6 text-aqua-blue flex-shrink-0" />

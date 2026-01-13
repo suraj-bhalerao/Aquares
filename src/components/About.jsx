@@ -1,6 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion, useSpring, useTransform } from 'framer-motion';
 import { ShieldCheck, Leaf, HeartHandshake } from 'lucide-react';
+import aboutImage from '../assets/about.png'; // Local asset
+
+const Counter = ({ from, to, duration }) => {
+    const spring = useSpring(from, { mass: 0.8, stiffness: 75, damping: 15 });
+    const display = useTransform(spring, (current) => Math.round(current));
+
+    useEffect(() => {
+        spring.set(to);
+    }, [spring, to]);
+
+    return <motion.span>{display}</motion.span>;
+};
 
 const About = () => {
     const features = [
@@ -36,8 +48,8 @@ const About = () => {
                     >
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1548839140-29a749e1984f?q=80&w=1000&auto=format&fit=crop"
-                                alt="Pure Water Bottle"
+                                src={aboutImage} // Using local image
+                                alt="Modern Water Bottling Plant"
                                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
@@ -50,7 +62,9 @@ const About = () => {
                         {/* Floating Badge */}
                         <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl max-w-[200px] hidden md:block border border-gray-100">
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="text-4xl font-bold text-aqua-blue">10k+</div>
+                                <div className="text-4xl font-bold text-aqua-blue">
+                                    <Counter from={0} to={10} duration={2} />k+
+                                </div>
                             </div>
                             <p className="text-sm text-gray-600 font-medium">Happy Clients Served</p>
                         </div>
@@ -66,7 +80,7 @@ const About = () => {
                         <h2 className="text-aqua-blue font-bold tracking-wide uppercase text-sm mb-2">About Us</h2>
                         <h3 className="text-4xl font-heading font-bold text-ocean-dark mb-6">More Than Just Water. <br /> A Reflection of Your Brand.</h3>
                         <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                            At Aquaress, we believe that water is the essence of life and a powerful medium for your brand. We specialize in providing ultra-pure, reverse-osmosis filtered water in custom-designed bottles that elevate your corporate identity.
+                            At AQURIUS, we believe that water is the essence of life and a powerful medium for your brand. We specialize in providing ultra-pure, reverse-osmosis filtered water in custom-designed bottles that elevate your corporate identity.
                         </p>
 
                         <div className="space-y-6">

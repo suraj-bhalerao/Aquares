@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import galleryImage1 from '../assets/gallery_1.png'; // Local asset
 
 const Gallery = () => {
     const images = [
-        "https://images.unsplash.com/photo-1602143407151-11115cdbf69c?q=80&w=800&auto=format&fit=crop",
+        galleryImage1,
         "https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?q=80&w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1616118132534-381148898bb8?q=80&w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1546743391-7fef481545e8?q=80&w=800&auto=format&fit=crop",

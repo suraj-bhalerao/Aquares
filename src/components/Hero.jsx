@@ -1,17 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Droplet } from 'lucide-react';
+import heroImage from '../assets/hero_bottle.png'; // Updated local asset
 
 const Hero = () => {
     return (
-        <section id="hero" className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-aqua-blue/30 pt-20">
+        <section id="hero" className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-aqua-blue/10 pt-20">
 
             {/* Decorative Elements */}
             <div className="absolute top-20 left-10 w-64 h-64 bg-aqua-blue/10 rounded-full blur-3xl animate-pulse" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                <div className="text-center max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="text-center lg:text-left">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -65,6 +66,16 @@ const Hero = () => {
                         </a>
                     </motion.div>
                 </div>
+
+                {/* Hero Image Side */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="hidden lg:block relative"
+                >
+                    <img src={heroImage} alt="Premium Custom Water Bottle" className="w-full max-w-[500px] mx-auto drop-shadow-2xl" />
+                </motion.div>
             </div>
 
             {/* Scroll Indicator */}

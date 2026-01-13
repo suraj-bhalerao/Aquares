@@ -8,6 +8,8 @@ import Logos from './components/Logos';
 import Location from './components/Location';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
+import FloatingActions from './components/FloatingActions';
 
 function App() {
 
@@ -28,10 +30,12 @@ function App() {
                 <About />
                 <Manufacturing />
                 <Gallery />
+                <Testimonials />
                 <Location />
                 <Contact />
             </main>
             <Footer />
+            <FloatingActions />
         </div>
     )
 }

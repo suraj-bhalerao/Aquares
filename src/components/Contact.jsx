@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
+import { submitToGoogleSheets } from '../services/googleSheets';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const Contact = () => {
         quantity: '',
         consent: false
     });
+    const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (e) => {
@@ -21,13 +23,14 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate submission
-        console.log('Form Submitted:', formData);
-        setTimeout(() => {
-            setSubmitted(true);
-        }, 1000);
+        setLoading(true);
+
+        await submitToGoogleSheets(formData);
+
+        setLoading(false);
+        setSubmitted(true);
     };
 
     return (
@@ -148,9 +151,10 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="w-full bg-aqua-blue text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:bg-sky-blue hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2"
+                                disabled={loading}
+                                className="w-full bg-aqua-blue text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:bg-sky-blue hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                Send Request <Send className="w-5 h-5" />
+                                {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Send Request <Send className="w-5 h-5" /></>}
                             </button>
                         </form>
                     )}
