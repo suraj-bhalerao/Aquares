@@ -24,7 +24,7 @@ export const submitToGoogleSheets = async (data) => {
             body: JSON.stringify(data),
             mode: 'no-cors', // Important for Google Apps Script to avoid CORS errors
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'text/plain;charset=utf-8' // explicit text/plain avoids preflight
             }
         });
         // With no-cors, we get an opaque response, but it usually means it went through if no error thrown.
